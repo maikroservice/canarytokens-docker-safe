@@ -45,7 +45,6 @@ services:
     command: bash -c "cd switchboard; rm -f switchboard.pid; poetry run twistd -noy switchboard.tac --pidfile=switchboard.pid"
   nginx_common_certbot:
     restart: always
-    image: thinkst/certbot-nginx
     build: ./certbot-nginx
     ports:
      - "80:80"
@@ -61,7 +60,6 @@ services:
      - ./nginx/conf.d:/etc/nginx/conf.d/
   nginx_common:
     restart: always
-    image: thinkst/canarytokens_nginx
     build: ./nginx
     ports:
      - "80:80"
